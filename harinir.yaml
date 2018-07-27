@@ -7,8 +7,8 @@
    gather_facts: yes
    vars:
       username: myuser
-   tasks:  ---> activity
-     - name: install telnet on both hosts ----> module name
+   tasks:
+     - name: install telnet on both hosts
        yum:
          name: telnet
          state: latest
