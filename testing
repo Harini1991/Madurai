@@ -1,13 +1,18 @@
---- # myfirst yaml..
+--- # my first yaml...
  - hosts: boa
    remote_user: ansible
    become: yes
-   become_method: sudoconnection: ssh
+   become_method: sudo
+   connection: ssh
    gather_facts: yes
    vars:
       username: myuser
    tasks:
-    - name: Installing telnet on both hosts
-      yum: telnet
-        name: telnet
-        state: latest
+     - name: install httpd on both hosts
+       yum:
+         name: httpd
+         state: latest
+     - name: service starting
+       service:
+          name: httpd
+          state: started
