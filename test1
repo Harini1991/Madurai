@@ -1,0 +1,14 @@
+--- # my first yaml...
+ - hosts: boa
+   remote_user: ansible
+   become: yes
+   become_method: sudo
+   connection: ssh
+   gather_facts: yes
+   vars:
+      username: myuser
+   tasks:
+     - name: Installation of telnet
+       yum:
+          name: telnet
+          state: latest
